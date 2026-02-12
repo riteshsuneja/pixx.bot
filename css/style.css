@@ -213,9 +213,6 @@ nav li a:hover { color: var(--acid); }
     padding-bottom: 20px;
 }
 
-.section-header h2 { font-size: 3rem; }
-.section-header span { color: var(--acid); }
-
 .bento-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -228,7 +225,14 @@ nav li a:hover { color: var(--acid); }
     padding: 40px;
     position: relative;
     overflow: hidden;
-    display: flex; flex-direction: column; justify-content: space-between;
+    
+    /* CRITICAL FIXES FOR ANCHOR TAGS */
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    text-decoration: none; /* Removes underline */
+    color: inherit;        /* Keeps text white */
+    
     min-height: 350px;
     transition: 0.3s;
 }
