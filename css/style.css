@@ -290,3 +290,9 @@ footer {
     color: #111; text-align: center;
     user-select: none; opacity: 0.5;
 }
+
+.bento-grid a.bento-card {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+}
