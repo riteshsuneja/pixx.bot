@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,10 @@
     <!-- Main Metrics START -->
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "vh37zibwzu");
     </script>
 
@@ -19,64 +20,88 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6D1SGD1G25"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-6D1SGD1G25');
     </script>
     <!-- Main Metrics END -->
 </head>
+
 <body>
     <div id="header-placeholder"></div>
-    
+
     <section class="hero">
         <div class="hero-text">
             <div class="hero-label mono">/// GET IN TOUCH</div>
             <h1>LET'S <span class="h-acid">CONNECT</span></h1>
-            <p>Ready to transform your event experience? Reach out to us and let's discuss how PIXX.BOT can elevate your brand presence.</p>
+            <p>Ready to transform your event experience? Reach out to us and let's discuss how PIXX.BOT can elevate your
+                brand presence.</p>
         </div>
     </section>
 
     <section class="contact-section">
         <div class="contact-container">
-            <div class="contact-info">
-                <h2>Contact Information</h2>
-                <div class="info-item">
-                    <h3>Email</h3>
-                    <a href="mailto:hello@pixx.bot">hello@pixx.bot</a>
-                </div>
-                <div class="info-item">
-                    <h3>Follow Us</h3>
-                    <div class="social-links">
-                        <a href="#">Instagram</a>
-                        <a href="#">LinkedIn</a>
-                    </div>
-                </div>
-            </div>
-
             <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+
+                <!-- Full Name (entry.483258784) -->
                 <div class="form-group">
                     <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" placeholder="Please enter your full name..." required>
                 </div>
 
+                <!-- Phone Number (entry.985905913) -->
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Please enter your phone number..." required>
+                </div>
+
+                <!-- Email (entry.918506104) -->
                 <div class="form-group">
                     <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" placeholder="Please enter your email address..." required>
                 </div>
 
+                <!-- Preferred Contact Method (entry.935714813) -->
                 <div class="form-group">
-                    <label for="company">Company</label>
-                    <input type="text" id="company" name="company">
+                    <label for="contact_method">Preferred Contact Method</label>
+                    <select id="contact_method" name="contact_method">
+                        <option value="Call">Call</option>
+                        <option value="Text">Text</option>
+                        <option value="Email">Email</option>
+                    </select>
                 </div>
 
+                <!-- Type of Event (entry.308252899) -->
                 <div class="form-group">
-                    <label for="subject">Subject *</label>
-                    <input type="text" id="subject" name="subject" required>
+                    <label for="event_type">Type of Event</label>
+                    <select id="event_type" name="event_type" onchange="toggleOtherInput(this.value)">
+                        <option value="Wedding">Wedding</option>
+                        <option value="Corporate Event">Corporate Event</option>
+                        <option value="Exhibition">Exhibition</option>
+                        <option value="Birthday Party">Birthday Party</option>
+                        <option value="Private Event">Private Event</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <!-- Hidden input for 'Other' response -->
+                    <input type="text" id="other_event_text" placeholder="Please specify event type..."
+                        style="display:none; margin-top: 10px;">
                 </div>
 
+                <!-- Guest Count (entry.971011536) -->
                 <div class="form-group">
-                    <label for="message">Message *</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <label for="guest_count">Estimated Number of Guests</label>
+                    <select id="guest_count" name="guest_count">
+                        <option value="0-50">0-50</option>
+                        <option value="51-100">51-100</option>
+                        <option value="101-150">101-150</option>
+                        <option value="150+">150+</option>
+                    </select>
+                </div>
+
+                <!-- Special Requests (entry.78738992) -->
+                <div class="form-group">
+                    <label for="message">Any special requests or specific questions? (Optional)</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Please describe your special requests or questions here..."></textarea>
                 </div>
 
                 <button type="submit" class="btn-primary">SEND MESSAGE</button>
@@ -87,50 +112,71 @@
     <div id="footer-placeholder"></div>
     <script src="/js/scripts.js"></script>
     <script>
-        async function submitData(name, email, message) {
-            // Google Form Response URL
-            const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSc7GmRrYEj7eU2JWXQqfNFZXgT8U4iRjSAxFqQQoG41wqZQ3w/formResponse";
+        // GLOBAL VARIABLE
+        const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSePW3cXveDaScfdPXPDlklGHYEwTgNbIZ_BBdjkUiusUX0POQ/formResponse";
 
-            // Prepare the data using the Entry IDs
+        // Show/Hide the "Other" text box based on selection
+        function toggleOtherInput(value) {
+            const otherInput = document.getElementById('other_event_text');
+            otherInput.style.display = (value === 'Other') ? 'block' : 'none';
+            if (value === 'Other') otherInput.setAttribute('required', 'true');
+            else otherInput.removeAttribute('required');
+        }
+
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+
+            // Collect values from the form
+            const name = document.getElementById("name").value;
+            const phone = document.getElementById("phone").value;
+            const email = document.getElementById("email").value;
+            const contactMethod = document.getElementById("contact_method").value;
+            const eventType = document.getElementById("event_type").value;
+            const otherEventDetail = document.getElementById("other_event_text").value;
+            const guestCount = document.getElementById("guest_count").value;
+            const message = document.getElementById("message").value;
+
+            // Prepare data using URLSearchParams to match your required string format
             const formData = new URLSearchParams();
-            formData.append("entry.2005620554", name);
-            formData.append("entry.1166974658", email);
-            formData.append("entry.839337160", message);
+
+            formData.append("entry.483258784", name);          // Full Name
+            formData.append("entry.985905913", phone);         // Phone
+            formData.append("entry.918506104", email);         // Email
+            formData.append("entry.935714813", contactMethod); // Contact Method
+            formData.append("entry.971011536", guestCount);    // Guest Count
+            formData.append("entry.78738992", message);        // Message
+
+            // LOGIC FOR "OTHER" OPTION
+            if (eventType === "Other") {
+                // Sets the main category to the special Google "Other" flag
+                formData.append("entry.308252899", "__other_option__");
+                // Sets the actual text for the other option
+                formData.append("entry.308252899.other_option_response", otherEventDetail);
+            } else {
+                formData.append("entry.308252899", eventType);
+            }
 
             try {
-                // Execute the request
                 await fetch(GOOGLE_FORM_URL, {
                     method: "POST",
-                    mode: "no-cors", // Essential: bypasses CORS blocks for "send-only" requests
+                    mode: "no-cors", // Required for Google Forms
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded"
                     },
                     body: formData.toString()
                 });
 
-                // Since mode is 'no-cors', we won't get a 'success' body back, 
-                // but the request will successfully hit Google's servers.
-                console.log("Data sent to Google Sheets!");
+                // SUCCESS
                 alert("Form Submitted Successfully!");
                 document.getElementById("contactForm").reset();
-                
+                document.getElementById('other_event_text').style.display = 'none';
+
             } catch (error) {
-                console.error("Submission failed:", error);
-                alert("Form submission failed. Please try again.");
+                console.error("Submission error:", error);
+                alert("Submission failed. Please check your connection.");
             }
-        }
-
-        function handleFormSubmit(event) {
-            event.preventDefault();
-
-            // Get form values
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const message = document.getElementById("message").value;
-
-            // Submit to Google Form
-            submitData(name, email, message);
         }
     </script>
 </body>
+
 </html>
