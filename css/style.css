@@ -76,8 +76,7 @@ nav li a:hover { color: var(--acid); }
 
 /* --- HERO SECTION --- */
 .hero {
-    min-height: 90vh;
-    margin-top: 8%;
+    min-height: 88vh;
     width: 100%;
     padding: 0 5vw; 
     display: grid;
@@ -129,12 +128,12 @@ nav li a:hover { color: var(--acid); }
     align-items: center;
     position: relative;
     z-index: 1;
-    height: 100%;
+    height: 90%;
 }
 
 .bot-img {
     width: 100%;
-    height: auto;
+    height: inherit;
     max-height: 80vh; 
     object-fit: contain;
     filter: drop-shadow(0 0 30px rgba(204, 255, 0, 0.15));
