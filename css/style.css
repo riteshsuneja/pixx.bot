@@ -299,3 +299,109 @@ footer {
     color: inherit;
     display: flex;
 }
+/* --- CONTACT PAGE LAYOUT --- */
+.contact-hero {
+    margin-top: 5%;
+    min-height: 90vh;
+    padding: 140px 5vw 80px;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr; /* Text on left, Form on right */
+    gap: 80px;
+    align-items: start;
+    border-bottom: 1px solid var(--border);
+}
+
+.contact-text-side {
+    position: sticky;
+    top: 140px;
+}
+
+.contact-text-side h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 0.9;
+    margin-bottom: 30px;
+}
+
+.contact-text-side p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.5;
+    max-width: 450px;
+}
+
+/* Form Styling within the side-by-side layout */
+.contact-form-side {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 40px;
+    border: 1px solid var(--border);
+}
+
+.contact-form-side .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact-form-side .span-2 {
+    grid-column: span 2;
+}
+
+.contact-form-side label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--acid);
+    text-transform: uppercase;
+}
+
+.contact-form-side input, 
+.contact-form-side select, 
+.contact-form-side textarea {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 15px;
+    color: var(--text-main);
+    font-family: 'Space Grotesk', sans-serif;
+    outline: none;
+    transition: 0.3s;
+}
+
+.contact-form-side input:focus, 
+.contact-form-side textarea:focus {
+    border-color: var(--acid);
+}
+
+#other_event_text {
+    margin-top: 10px;
+    border-left: 2px solid var(--acid);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1100px) {
+    .contact-hero {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        padding-top: 120px;
+    }
+    .contact-text-side {
+        position: static;
+        text-align: center;
+    }
+    .contact-text-side p {
+        margin: 0 auto;
+    }
+    .contact-form-side {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-form-side {
+        grid-template-columns: 1fr;
+    }
+    .contact-form-side .span-2 {
+        grid-column: span 1;
+    }
+}

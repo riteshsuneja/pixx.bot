@@ -30,92 +30,81 @@
 <body>
     <div id="header-placeholder"></div>
 
-    <section class="hero">
-        <div class="hero-text">
-            <div class="hero-label mono">/// GET IN TOUCH</div>
-            <h1>LET'S <span class="h-acid">CONNECT</span></h1>
-            <p>Ready to transform your event experience? Reach out to us and let's discuss how PIXX.BOT can elevate your
-                brand presence.</p>
-        </div>
-    </section>
+    <main>
+        <section class="contact-hero">
+            <!-- LEFT SIDE: TEXT -->
+            <div class="contact-text-side">
+                <div class="hero-label mono">/// CONTACT_SYSTEM_v1.0</div>
+                <h1>LET'S <span class="h-acid">CONNECT</span></h1>
+                <p>Ready to transform your event experience? Reach out to us and let's discuss how PIXX.BOT can elevate
+                    your brand presence through high-tech interaction.</p>
+            </div>
 
-    <section class="contact-section">
-        <div class="contact-container">
-            <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+            <!-- RIGHT SIDE: FORM -->
+            <div class="contact-form-container">
+                <form class="contact-form-side" id="contactForm" onsubmit="handleFormSubmit(event)">
 
-                <!-- Full Name (entry.483258784) -->
-                <div class="form-group">
-                    <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" placeholder="Please enter your full name..." required>
-                </div>
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
 
-                <!-- Phone Number (entry.985905913) -->
-                <div class="form-group">
-                    <label for="phone">Phone Number *</label>
-                    <input type="tel" id="phone" name="phone" placeholder="Please enter your phone number..." required>
-                </div>
+                    <div class="form-group">
+                        <label for="phone">Phone *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+1..." required>
+                    </div>
 
-                <!-- Email (entry.918506104) -->
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" placeholder="Please enter your email address..." required>
-                </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="hello@pixx.bot" required>
+                    </div>
 
-                <!-- Preferred Contact Method (entry.935714813) -->
-                <div class="form-group">
-                    <label for="contact_method">Preferred Contact Method</label>
-                    <select id="contact_method" name="contact_method">
-                        <option value="Call">Call</option>
-                        <option value="Text">Text</option>
-                        <option value="Email">Email</option>
-                    </select>
-                </div>
+                    <div class="form-group">
+                        <label for="contact_method">Preferred Contact</label>
+                        <select id="contact_method">
+                            <option value="Email">Email</option>
+                            <option value="Call">Call</option>
+                            <option value="Text">Text</option>
+                        </select>
+                    </div>
 
-                <!-- Type of Event (entry.308252899) -->
-                <div class="form-group">
-                    <label for="event_type">Type of Event</label>
-                    <select id="event_type" name="event_type" onchange="toggleOtherInput(this.value)">
-                        <option value="Wedding">Wedding</option>
-                        <option value="Corporate Event">Corporate Event</option>
-                        <option value="Exhibition">Exhibition</option>
-                        <option value="Birthday Party">Birthday Party</option>
-                        <option value="Private Event">Private Event</option>
-                        <option value="Other">Other</option>
-                    </select>
-                    <!-- Hidden input for 'Other' response -->
-                    <input type="text" id="other_event_text" placeholder="Please specify event type..."
-                        style="display:none; margin-top: 10px;">
-                </div>
+                    <div class="form-group">
+                        <label for="event_type">Type of Event</label>
+                        <select id="event_type" onchange="toggleOtherInput(this.value)">
+                            <option value="Wedding">Wedding</option>
+                            <option value="Corporate Event">Corporate Event</option>
+                            <option value="Exhibition">Exhibition</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="text" id="other_event_text" placeholder="Please specify..." style="display:none;">
+                    </div>
 
-                <!-- Guest Count (entry.971011536) -->
-                <div class="form-group">
-                    <label for="guest_count">Estimated Number of Guests</label>
-                    <select id="guest_count" name="guest_count">
-                        <option value="0-50">0-50</option>
-                        <option value="51-100">51-100</option>
-                        <option value="101-150">101-150</option>
-                        <option value="150+">150+</option>
-                    </select>
-                </div>
+                    <div class="form-group">
+                        <label for="guest_count">Guest Count</label>
+                        <select id="guest_count">
+                            <option value="0-50">0-50</option>
+                            <option value="51-100">51-100</option>
+                            <option value="101-150">101-150</option>
+                            <option value="150+">150+</option>
+                        </select>
+                    </div>
 
-                <!-- Special Requests (entry.78738992) -->
-                <div class="form-group">
-                    <label for="message">Any special requests or specific questions? (Optional)</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Please describe your special requests or questions here..."></textarea>
-                </div>
+                    <div class="form-group span-2">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" rows="4" placeholder="How can we help?"></textarea>
+                    </div>
 
-                <button type="submit" class="btn-primary">SEND MESSAGE</button>
-            </form>
-        </div>
-    </section>
+                    <button type="submit" class="btn-primary">INITIATE CONNECTION</button>
+                </form>
+            </div>
+        </section>
+    </main>
 
     <div id="footer-placeholder"></div>
     <script src="/js/scripts.js"></script>
     <script>
-        // GLOBAL VARIABLE
         const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSePW3cXveDaScfdPXPDlklGHYEwTgNbIZ_BBdjkUiusUX0POQ/formResponse";
 
-        // Show/Hide the "Other" text box based on selection
         function toggleOtherInput(value) {
             const otherInput = document.getElementById('other_event_text');
             otherInput.style.display = (value === 'Other') ? 'block' : 'none';
@@ -126,32 +115,18 @@
         async function handleFormSubmit(event) {
             event.preventDefault();
 
-            // Collect values from the form
-            const name = document.getElementById("name").value;
-            const phone = document.getElementById("phone").value;
-            const email = document.getElementById("email").value;
-            const contactMethod = document.getElementById("contact_method").value;
-            const eventType = document.getElementById("event_type").value;
-            const otherEventDetail = document.getElementById("other_event_text").value;
-            const guestCount = document.getElementById("guest_count").value;
-            const message = document.getElementById("message").value;
-
-            // Prepare data using URLSearchParams to match your required string format
             const formData = new URLSearchParams();
+            formData.append("entry.483258784", document.getElementById("name").value);
+            formData.append("entry.985905913", document.getElementById("phone").value);
+            formData.append("entry.918506104", document.getElementById("email").value);
+            formData.append("entry.935714813", document.getElementById("contact_method").value);
+            formData.append("entry.971011536", document.getElementById("guest_count").value);
+            formData.append("entry.78738992", document.getElementById("message").value);
 
-            formData.append("entry.483258784", name);          // Full Name
-            formData.append("entry.985905913", phone);         // Phone
-            formData.append("entry.918506104", email);         // Email
-            formData.append("entry.935714813", contactMethod); // Contact Method
-            formData.append("entry.971011536", guestCount);    // Guest Count
-            formData.append("entry.78738992", message);        // Message
-
-            // LOGIC FOR "OTHER" OPTION
+            const eventType = document.getElementById("event_type").value;
             if (eventType === "Other") {
-                // Sets the main category to the special Google "Other" flag
                 formData.append("entry.308252899", "__other_option__");
-                // Sets the actual text for the other option
-                formData.append("entry.308252899.other_option_response", otherEventDetail);
+                formData.append("entry.308252899.other_option_response", document.getElementById("other_event_text").value);
             } else {
                 formData.append("entry.308252899", eventType);
             }
@@ -159,14 +134,11 @@
             try {
                 await fetch(GOOGLE_FORM_URL, {
                     method: "POST",
-                    mode: "no-cors", // Required for Google Forms
-                    headers: {
-                        "Content-Type": "application/x-www-form-urlencoded"
-                    },
+                    mode: "no-cors",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: formData.toString()
                 });
 
-                // SUCCESS
                 alert("Form Submitted Successfully!");
                 document.getElementById("contactForm").reset();
                 document.getElementById('other_event_text').style.display = 'none';
