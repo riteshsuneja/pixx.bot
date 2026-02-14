@@ -76,7 +76,7 @@ nav li a:hover { color: var(--acid); }
 
 /* --- HERO SECTION --- */
 .hero {
-    min-height: 88vh;
+    min-height: 65vh;
     width: 100%;
     padding: 0 5vw; 
     display: grid;
