@@ -406,43 +406,56 @@ footer {
         grid-column: span 1;
     }
 }
-/* --- FOOTER REFINEMENTS --- */
+/* --- FOOTER REFINEMENTS --- *//* --- FOOTER BOTTOM STYLING --- */
 .footer-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 20px;
-    margin-top: 40px;
+    padding-top: 30px;
+    margin-top: 20px;
     border-top: 1px solid var(--border);
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    letter-spacing: 1px;
 }
 
-.footer-contact-info a {
-    color: var(--text-main);
-    transition: color 0.3s;
+/* Matching the style of .footer-nav a */
+.footer-contact-links a, 
+.footer-copyright,
+.footer-text {
+    color: #888; /* Matches your footer-nav color */
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
-.footer-contact-info a:hover {
+.footer-contact-links {
+    display: flex;
+    gap: 30px; /* Space between Email and Phone */
+}
+
+/* Hover effect only for the links */
+.footer-contact-links a:hover {
     color: var(--acid);
 }
 
-.footer-contact-info .separator {
-    margin: 0 15px;
-    color: var(--acid);
-    opacity: 0.5;
-}
-
+/* Big text adjustments to keep it clean */
 .big-text {
-    margin: 40px 0; /* Space it out from the content */
+    margin: 20px 0;
+    font-size: 15vw;
+    color: #111; /* Keep it dark so it stays in the background */
     pointer-events: none;
 }
 
-@media (max-width: 768px) {
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
     .footer-bottom {
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
         text-align: center;
+        align-items: center;
+    }
+    .footer-contact-links {
+        flex-direction: column;
+        gap: 10px;
     }
 }
