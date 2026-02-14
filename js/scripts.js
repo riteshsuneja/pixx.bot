@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Load Main Metrics
+    fetch('/components/main-metrics.html')
+        .then(response => response.text())
+        .then(data => {
+            document.body.insertAdjacentHTML('afterbegin', data);
+        });
+
     // Load Header
     fetch('/components/header.html')
         .then(response => response.text())
