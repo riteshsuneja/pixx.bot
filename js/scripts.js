@@ -1,12 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Load Main Metrics
-    fetch('/components/header.html')
-        .then(response => response.text())
-        .then(data => {
-            
-            document.getElementById('header-placeholder').innerHTML = data;
-        });
-
     // Load Header
     fetch('/components/header.html')
         .then(response => response.text())
