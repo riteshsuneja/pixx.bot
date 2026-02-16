@@ -35,7 +35,7 @@ body::after {
     z-index: 9999;
 }
 
-a { text-decoration: none; color: inherit; transition: 0.3s; }
+a { text-decoration: none; color: inherit; transition: 0.3s; width: inherit; }
 
 /* --- TYPOGRAPHY --- */
 h1, h2, h3 {
