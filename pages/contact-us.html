@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +14,6 @@
             y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "vh37zibwzu");
     </script>
-
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6D1SGD1G25"></script>
     <script>
@@ -26,10 +24,8 @@
     </script>
     <!-- Main Metrics END -->
 </head>
-
 <body>
     <div id="header-placeholder"></div>
-
     <main>
         <section class="contact-hero">
             <!-- LEFT SIDE: TEXT -->
@@ -39,26 +35,21 @@
                 <p>Ready to transform your event experience? Reach out to us and let's discuss how PIXX.BOT can elevate
                     your brand presence through high-tech interaction.</p>
             </div>
-
             <!-- RIGHT SIDE: FORM -->
             <div class="contact-form-container">
                 <form class="contact-form-side" id="contactForm" onsubmit="handleFormSubmit(event)">
-
                     <div class="form-group">
                         <label for="name">Full Name *</label>
                         <input type="text" id="name" name="name" placeholder="John Doe" required>
                     </div>
-
                     <div class="form-group">
                         <label for="phone">Phone *</label>
                         <input type="tel" id="phone" name="phone" placeholder="+1..." required>
                     </div>
-
                     <div class="form-group">
                         <label for="email">Email *</label>
                         <input type="email" id="email" name="email" placeholder="hello@pixx.bot" required>
                     </div>
-
                     <div class="form-group">
                         <label for="contact_method">Preferred Contact</label>
                         <select id="contact_method">
@@ -67,7 +58,6 @@
                             <option value="Text">Text</option>
                         </select>
                     </div>
-
                     <div class="form-group">
                         <label for="event_type">Type of Event</label>
                         <select id="event_type" onchange="toggleOtherInput(this.value)">
@@ -78,7 +68,6 @@
                         </select>
                         <input type="text" id="other_event_text" placeholder="Please specify..." style="display:none;">
                     </div>
-
                     <div class="form-group">
                         <label for="guest_count">Guest Count</label>
                         <select id="guest_count">
@@ -88,33 +77,41 @@
                             <option value="150+">150+</option>
                         </select>
                     </div>
-
+                    <div class="form-group">
+                        <label for="event_date">Potential date of event</label>
+                        <input type="date" id="event_date" name="event_date">
+                    </div>
                     <div class="form-group span-2">
                         <label for="message">Project Details</label>
                         <textarea id="message" rows="4" placeholder="How can we help?"></textarea>
                     </div>
-
                     <button type="submit" class="btn-primary">INITIATE CONNECTION</button>
                 </form>
             </div>
         </section>
     </main>
-
     <div id="footer-placeholder"></div>
     <script src="/js/scripts.js"></script>
     <script>
         const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSePW3cXveDaScfdPXPDlklGHYEwTgNbIZ_BBdjkUiusUX0POQ/formResponse";
-
+        let d = new Date();
+        let originalDay = d.getDate();
+        d.setDate(1);
+        d.setMonth(d.getMonth() + 2);
+        let lastDayOfTargetMonth = new Date(d.getFullYear(), d.getMonth() + 1, 0).getDate();
+        let finalDay = Math.min(originalDay, lastDayOfTargetMonth);
+        let day = String(finalDay).padStart(2, '0');
+        let month = String(d.getMonth() + 1).padStart(2, '0');
+        let year = d.getFullYear();
+        document.getElementById("event_date").value = `${year}-${month}-${day}`;
         function toggleOtherInput(value) {
             const otherInput = document.getElementById('other_event_text');
             otherInput.style.display = (value === 'Other') ? 'block' : 'none';
             if (value === 'Other') otherInput.setAttribute('required', 'true');
             else otherInput.removeAttribute('required');
         }
-
         async function handleFormSubmit(event) {
             event.preventDefault();
-
             const formData = new URLSearchParams();
             formData.append("entry.483258784", document.getElementById("name").value);
             formData.append("entry.985905913", document.getElementById("phone").value);
@@ -122,7 +119,11 @@
             formData.append("entry.935714813", document.getElementById("contact_method").value);
             formData.append("entry.971011536", document.getElementById("guest_count").value);
             formData.append("entry.78738992", document.getElementById("message").value);
-
+            let dateValue = document.getElementById("event_date").value;
+            let [year, month, day] = dateValue.split("-");
+            formData.append("entry.2118954072_year", year);
+            formData.append("entry.2118954072_month", month);
+            formData.append("entry.2118954072_day", day);
             const eventType = document.getElementById("event_type").value;
             if (eventType === "Other") {
                 formData.append("entry.308252899", "__other_option__");
@@ -130,7 +131,6 @@
             } else {
                 formData.append("entry.308252899", eventType);
             }
-
             try {
                 await fetch(GOOGLE_FORM_URL, {
                     method: "POST",
@@ -138,11 +138,9 @@
                     headers: { "Content-Type": "application/x-www-form-urlencoded" },
                     body: formData.toString()
                 });
-
                 alert("Form Submitted Successfully!");
                 document.getElementById("contactForm").reset();
                 document.getElementById('other_event_text').style.display = 'none';
-
             } catch (error) {
                 console.error("Submission error:", error);
                 alert("Submission failed. Please check your connection.");
