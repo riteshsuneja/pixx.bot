@@ -204,7 +204,7 @@ nav li a:hover { color: var(--acid); }
 }
 
 /* --- BENTO GRID LAYOUT --- */
-.services { padding: 100px 5vw; }
+.services { padding: 50px 5vw; }
 
 .section-header {
     margin-bottom: 60px;
@@ -272,7 +272,7 @@ nav li a:hover { color: var(--acid); }
 
 /* --- FOOTER --- */
 footer {
-    padding: 80px 5vw;
+    padding: 80px 5vw 10px 5vw;
     border-top: 1px solid var(--border);
     background: #020202;
 }
@@ -458,4 +458,72 @@ footer {
         flex-direction: column;
         gap: 10px;
     }
+}
+
+
+/* --- BENTO GRID ARCHITECTURE --- */
+.bento-grid {
+    display: grid;
+    /* 12-column base for maximum flexibility */
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(3, minmax(250px, auto));
+    gap: 15px;
+}
+
+/* MOD 1: KINETIC - Left Pillar (Spans all 3 rows) */
+.mod-kinetic {
+    grid-column: 1 / 5; /* Spans 4 units */
+    grid-row: 1 / 4;
+}
+
+/* ROW 1: DIGITAL STUDIO (Wide) & DATA SYNC (Thin) */
+.mod-digital {
+    grid-column: 5 / 10; /* Spans 5 units (Wide) */
+    grid-row: 1;
+}
+.mod-datasync {
+    grid-column: 10 / 13; /* Spans 3 units (Thin) */
+    grid-row: 1;
+}
+
+/* ROW 2 & 3: 360 (Tall / Narrower shift) */
+.mod-360 {
+    grid-column: 5 / 8;  /* Spans 3 units (Thinner than Digital Studio above it) */
+    grid-row: 2 / 4;     /* Tall card */
+}
+
+/* ROW 2: LIVE STREAM */
+.mod-live {
+    grid-column: 8 / 13; /* Starts earlier than Data Sync above it, making it wider */
+    grid-row: 2;
+}
+
+/* ROW 3: CUSTOM CTA */
+.mod-custom {
+    grid-column: 8 / 13;
+    grid-row: 3;
+    background: var(--acid) !important;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 1000px) {
+    .bento-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .bento-card {
+        min-height: 300px !important;
+    }
+}
+
+/* Refined Bento Hover */
+.bento-card {
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s;
+}
+
+.bento-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--acid);
 }
