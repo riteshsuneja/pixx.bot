@@ -68,8 +68,8 @@ header {
     border-bottom: 1px solid var(--border);
 }
 
-.logo-container { width: 140px; display: flex; align-items: center; }
-.logo-img { width: 100%; height: auto; display: block; }
+.logo-container { width: 140px; display: flex; align-items: center;     padding: 1.5vw; }
+.logo-img { width: 100%; height: inherit; display: block; }
 nav ul { display: flex; gap: 40px; }
 nav li a { font-size: 0.8rem; color: var(--text-muted); font-weight: 700; }
 nav li a:hover { color: var(--acid); }
@@ -278,7 +278,7 @@ footer {
 }
 
 .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 80px; }
-.footer-logo-container { width: 180px; margin-bottom: 20px; }
+.footer-logo-container { width: 180px; margin-bottom: 20px; padding: 1vw; height: 16vh; }
 .footer-brand p { color: #666; font-size: 0.8rem; max-width: 300px; line-height: 1.4; }
 
 .footer-nav a {
