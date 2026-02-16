@@ -527,3 +527,14 @@ footer {
     transform: translateY(-5px);
     border-color: var(--acid);
 }
+
+.mono p {
+    margin-bottom: 1.5rem;
+    max-width: 100%; /* Allows text to fill the container on privacy page */
+}
+
+@media (max-width: 900px) {
+    .contact-hero {
+        padding-top: 80px;
+    }
+}
