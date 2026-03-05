@@ -233,7 +233,7 @@ nav li a:hover { color: var(--acid); }
     text-decoration: none; /* Removes underline */
     color: inherit;        /* Keeps text white */
     
-    min-height: 350px;
+    min-height: 250px;
     transition: 0.3s;
 }
 
@@ -248,6 +248,26 @@ nav li a:hover { color: var(--acid); }
     position: absolute; top: 20px; right: 20px;
     font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
     color: var(--acid); opacity: 0.5;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.mod-datasync .card-image {
+    max-width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mod-datasync {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .span-7 { grid-column: span 7; }
@@ -466,7 +486,7 @@ footer {
     display: grid;
     /* 12-column base for maximum flexibility */
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(3, minmax(250px, auto));
+    grid-template-rows: minmax(120px, auto) minmax(240px, auto) minmax(180px, auto);
     gap: 15px;
 }
 
@@ -476,7 +496,7 @@ footer {
     grid-row: 1 / 4;
 }
 
-/* ROW 1: DIGITAL STUDIO (Wide) & DATA SYNC (Thin) */
+/* ROW 1, COL 2: DIGITAL STUDIO (Wide) & DATA SYNC (Thin) */
 .mod-digital {
     grid-column: 5 / 10; /* Spans 5 units (Wide) */
     grid-row: 1;
@@ -494,15 +514,16 @@ footer {
 
 /* ROW 2: LIVE STREAM */
 .mod-live {
-    grid-column: 8 / 13; /* Starts earlier than Data Sync above it, making it wider */
+    grid-column: 5 / 13; /* Expanded to fill the gap left by mod-360 */
     grid-row: 2;
 }
 
 /* ROW 3: CUSTOM CTA */
 .mod-custom {
-    grid-column: 8 / 13;
+    grid-column: 5 / 13; /* Expanded to fill the gap left by mod-360 */
     grid-row: 3;
     background: var(--acid) !important;
+    min-height: 180px;
 }
 
 /* --- MOBILE RESPONSIVENESS --- */
@@ -537,4 +558,13 @@ footer {
     .contact-hero {
         padding-top: 80px;
     }
+}
+
+.mirror {
+    transform: scaleX(-1);
+}
+
+.wide-img {
+    max-width: 150%;
+    width: 150%;
 }
